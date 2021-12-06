@@ -1,0 +1,460 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-primary: 'Teko';
+    --ff-secondary: 'Allerta Stencil';
+    --fw-reg: 300;
+    --fw-bold: 900;
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    --bs: 0.25em 0.25em 0.75em black, 0.125em 0.125em 0.25em black;
+}
+
+
+/* General styles */
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    /* setting the max width to 100% helps so that the image doesn't overflow its parent element */
+}
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+
+/* setting text-transform to upper case helps with adding letter spacing prop */
+
+.btn {
+    display: block;
+    padding: .5em 3.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--fw-bold);
+    transition: tranform 200ms ease-in-out;
+    height: fit-content;
+    width: fit-content;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    color: var(--clr-accent);
+}
+
+strong {
+    font-weight: var(--fw-bold);
+    display: block;
+}
+
+.sec-title {
+    margin-bottom: .25em;
+    font-weight: var(--fw-reg);
+}
+
+.sec-sub {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.sec-sub,
+.int {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+    padding: .25em 1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.intro {
+    position: relative;
+}
+
+.intro-img {
+    box-shadow: var(--bs);
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    font-size: 1em;
+    text-decoration: none;
+    margin-right: 3px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: red;
+    border-bottom: solid 2px black;
+}
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.sec-sub {
+    display: inline-block;
+    /* it sets the width to the size of itself */
+}
+
+.ham {
+    background-color: var(--clr-dark);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    display: block;
+    position: relative;
+}
+
+.ham,
+.ham::before,
+.ham::after {
+    background-color: var(--clr-dark);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+}
+
+.ham::before {
+    top: 6px;
+}
+
+.ham::after {
+    bottom: 6px;
+}
+
+.ham::before,
+.ham::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+
+/* for theme settings */
+
+.nav-open {
+    background: rgb(196, 10, 10);
+    color: black;
+    transition: background .2s linear;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+
+/* My services section */
+
+.my-services {
+    color: var(--clr-light);
+    background: url("meezy-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.svc {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+
+/* With pseudo elements we have to use the content property, else nothing will display */
+
+.svc::after {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 1px;
+    margin: 0.1em auto 1em;
+    background: currentColor;
+}
+
+.service {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+/*About Section */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-img {
+    box-shadow: var(--bs);
+}
+
+
+/* My Work */
+
+.my-work {
+    background: linear-gradient(45deg, black, #16e0bd);
+    color: var(--clr-light);
+    text-align: center;
+    border-radius: 50px 50px 0 0;
+}
+
+.sec-work {
+    color: black;
+}
+
+.sub-work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+    text-shadow: 3px 3px 15px black, 3px 3px 15px black;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    max-width: 510px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    background: var(--clr-accent);
+    overflow: hidden;
+}
+
+.port-img {
+    transition: transform 750ms cubic-bezier(.5, 0, .5, 1), opacity 250ms linear;
+}
+
+.port-item:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.port-img:hover,
+.port-item:focus {
+    transform: scale(1.2);
+    opacity: 70%;
+}
+
+
+/* Footer */
+
+.footer {
+    background: black;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.foot-link {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+}
+
+.foot-link:hover,
+.social-list:hover {
+    opacity: .7;
+}
+
+.foot-link:hover {
+    text-decoration: underline;
+}
+
+.social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+    padding: 0;
+}
+
+.social-list {
+    margin: 0 .5em;
+    padding: .5em;
+}
+
+@media screen and (max-width: 480px) {
+    .nav-link {
+        color: var(--clr-accent);
+        font-weight: var(--fw-bold);
+        font-size: 13px;
+        text-decoration: none;
+        margin-right: 3px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .sec-sub,
+    .int {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        column-gap: 1em;
+        grid-template-areas: "img title" "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+    .intro-img {
+        grid-area: img;
+        min-width: 200px;
+    }
+    .sec-sub {
+        align-self: start;
+        grid-column: -1/1;
+        /* the above value made the element stretch the whole div */
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        z-index: -1;
+        width: calc(100% + 1.5em);
+    }
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: "tt ng" "sub ng" "text ng";
+        column-gap: 1em;
+    }
+    .int {
+        grid-column: 1/-1;
+        grid-row: 2;
+        position: relative;
+        left: -2em;
+        width: calc(100% + 4em);
+        padding-left: 2em;
+        padding-right: calc(200px + em);
+        z-index: -1;
+    }
+    .abt-t {
+        grid-area: tt;
+    }
+    .about-img {
+        /* this means that its starting at the top and ending on the last row */
+        /* grid-row: 1/-1;
+        grid-column: 2; */
+        grid-area: ng;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+     :root {
+        --ff-primary: 'Teko';
+        --ff-secondary: 'Allerta Stencil';
+        --fw-reg: 300;
+        --fw-bold: 900;
+        --clr-light: #fff;
+        --clr-dark: #303030;
+        --clr-accent: #16e0bd;
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+    .my-services {
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+        justify-content: space-around;
+    }
+    .my-work {
+        max-width: 1000px;
+        margin: auto;
+    }
+    .fa-instagram,
+    .fa-twitter,
+    .fa-snapchat,
+    .fa-facebook {
+        font-size: 40px;
+    }
+}
+
+
+/* Tomhost with digital ocean droplets */
